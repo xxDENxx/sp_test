@@ -1,4 +1,7 @@
 #!/usr/bin/ruby
 # frozen_string_literal: true
 
-puts 'Hello World'
+require './lib/log_parser'
+
+file_path = ARGV[0]
+LogParser.prepare(file_path).run
