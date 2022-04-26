@@ -7,11 +7,15 @@ module Formatters
     end
 
     def format
-      data.map { |url, attr| 'some string' }.join("\n")
+      data.map { |url, attr| formatted_string(url, attr) }.join("\n")
     end
 
     private
 
     attr_reader :data
+
+    def formatted_string(url, attr)
+      "#{url} #{attr[:uniq_ips].count} unique views"
+    end
   end
 end
