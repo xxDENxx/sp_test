@@ -77,4 +77,29 @@ describe PageCollection do
 
     it { is_expected.to eq(sorted) }
   end
+
+  describe '#custom_sort' do
+    subject(:sort) { collection.custom_sort(sort_action) }
+    let(:collection) { described_class.new }
+    let(:page1) { Page.new(url: 'url1', ip: 'ip1') }
+    let(:page2) { Page.new(url: 'url2', ip: 'ip1') }
+    let(:page3) { Page.new(url: 'url3', ip: 'ip1') }
+    let(:sort_action) { ->(x) { x.first } }
+
+    before do
+      collection.add_page(page1)
+      collection.add_page(page2)
+      collection.add_page(page3)
+    end
+
+    let(:sorted) do
+      [
+        ['url3', { total: 1, uniq_ips: ['ip1'] }],
+        ['url2', { total: 1, uniq_ips: ['ip1'] }],
+        ['url1', { total: 1, uniq_ips: ['ip1'] }]
+      ]
+    end
+
+    it { is_expected.to eq(sorted) }
+  end
 end

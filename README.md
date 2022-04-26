@@ -1,5 +1,7 @@
 # LogParser
 
+![Rubocop&Rspec](https://github.com/xxDENxx/sp_ruby_test/actions/workflows/checks.yml/badge.svg)
+
 This repository is written as an example.
 
 ## Task
@@ -52,3 +54,15 @@ $ bundle exec rspec spec
 ```
 $ bundle exec rspec & open coverage/index.html 
 ```
+
+Example:
+
+![coverage_screenshot](./coverage_screenshot.png)
+
+## Future improvements
+
+- adding new types of reports(by use custom sort)
+- more validators(url format or something else)
+- move file logic from log_parser to separate module
+- more control over which report we want to display
+- dsl for compact sort types
