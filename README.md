@@ -40,3 +40,15 @@ $ ./parser.rb webserver.log
 url ip
 next_url ip
 ```
+
+## Run tests
+
+```
+$ bundle exec rspec spec
+```
+
+## Test coverage
+
+```
+$ bundle exec rspec & open coverage/index.html 
+```
