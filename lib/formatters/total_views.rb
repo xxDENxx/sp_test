@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
+require './lib/formatters/base'
+
 module Formatters
-  class TotalViews
-    def initialize(sorted_data)
-      @data = sorted_data
-    end
-
-    def format
-      data.map { |url, attr| 'some string' }.join("\n")
-    end
-
+  class TotalViews < Base
     private
 
-    attr_reader :data
+    def formatted_string(url, attr)
+      "#{url} #{attr[:total]} visits"
+    end
   end
 end
